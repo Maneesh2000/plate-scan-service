@@ -5,6 +5,7 @@ A vehicle recovery platform API that ingests license plate/VIN scans from truck-
 ## Tech Stack
 
 - **Backend**: Python 3.12, FastAPI, SQLAlchemy 2.0, Pydantic v2
+- **Frontend**: React 18, Vite, Leaflet (interactive maps)
 - **Database**: PostgreSQL 15
 - **Auth**: JWT (python-jose) + bcrypt
 - **Testing**: pytest with SQLite in-memory
@@ -27,6 +28,8 @@ Interactive docs at **http://localhost:8000/docs**.
 
 ### Option 2: Local development
 
+#### 1. Backend (FastAPI)
+
 ```bash
 # Prerequisites: Python 3.12+, PostgreSQL running locally
 
@@ -45,6 +48,25 @@ uvicorn app.main:app --reload
 # Seed the database
 python -m app.seed
 ```
+
+#### 2. Frontend (React + Vite)
+
+```bash
+# Prerequisites: Node.js 18+
+
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+The frontend dashboard will be available at:
+- **Central Directory**: `http://localhost:3000`
+- **Alpha Recovery Portal**: `http://alpha.localhost:3000` (`alice` or `admin_a` / `password123`)
+- **Beta Recovery Portal**: `http://beta.localhost:3000` (`bob` / `password123`)
 
 ### Running Tests
 
