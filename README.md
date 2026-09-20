@@ -128,3 +128,20 @@ pytest tests/ -v
 - **SNS / SQS**: Push notifications to field recovery agents and partner systems.
 - **AWS S3**: Scalable object storage for raw camera scan images.
 
+## CI/CD Pipeline
+
+![CI/CD Pipeline](docs/images/cicd-pipeline.png)
+
+- **GitHub Repository Branches**: `main`, `develop`, `frontend`, `backend`
+- **Backend CI/CD (Python API Service)**:
+  1. **Trigger GitHub Actions**: On push / PR targeting backend paths
+  2. **Run Tests**: Code linting & unit tests (Python / pytest)
+  3. **Build Python Image**: Build Docker container, tag, and push to **Amazon ECR**
+  4. **Deploy the Stack**: Deploy/update ECS service via Terraform / CloudFormation or AWS CLI
+- **Frontend CI/CD (React UI)**:
+  1. **Trigger GitHub Actions**: On push / PR targeting frontend paths
+  2. **Run Tests**: Code linting & unit tests (Node / React)
+  3. **Build Frontend**: Install dependencies and build production bundle
+  4. **Deploy to S3**: Upload production build to **AWS S3** and invalidate **CloudFront** cache
+
+
