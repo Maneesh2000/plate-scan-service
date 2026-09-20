@@ -47,7 +47,7 @@ All test accounts use the password: **`password123`**
 | :--- | :--- | :--- | :--- | :--- |
 | **Alpha Recovery** | [http://alpha.localhost:3000](http://alpha.localhost:3000) | `cam_1001` | `alice` (staff)<br>`admin_a` (admin) | Active case with VIN `1FTFW1E51NFA12345` & 3 location scans |
 | **Beta Recovery** | [http://beta.localhost:3000](http://beta.localhost:3000) | `cam_2050` | `bob` (staff) | Ready for new scans & cross-tenant claims |
-| **Agency Directory**| [http://localhost:3000](http://localhost:3000) | — | — | Central portal directory linking to each agency |
+| **Platform Directory**| [http://platform.localhost:3000](http://platform.localhost:3000) | — | — | Central portal directory (auto-redirects from `localhost:3000`) |
 
 *(Note: Per RFC 6761, modern browsers automatically resolve `*.localhost` subdomains directly to `127.0.0.1` with no `/etc/hosts` changes required).*
 

@@ -66,7 +66,7 @@ npm run dev
 ```
 
 The frontend dashboard will be available at:
-- **Central Directory**: `http://localhost:3000`
+- **Platform Directory**: `http://platform.localhost:3000` (auto-redirects from `http://localhost:3000`)
 - **Alpha Recovery Portal**: `http://alpha.localhost:3000` (`alice` or `admin_a` / `password123`)
 - **Beta Recovery Portal**: `http://beta.localhost:3000` (`bob` / `password123`)
 

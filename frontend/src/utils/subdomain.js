@@ -17,7 +17,7 @@ export function getSubdomain() {
   const parts = hostname.split(".");
   if (parts.length > 1) {
     const sub = parts[0].toLowerCase();
-    if (sub !== "www" && sub !== "localhost") {
+    if (sub !== "www" && sub !== "localhost" && sub !== "platform") {
       return sub;
     }
   }

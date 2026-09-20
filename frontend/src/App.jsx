@@ -17,7 +17,17 @@ export default function App() {
   const { user } = useAuth();
   const subdomain = getSubdomain();
 
-  // Root domain (localhost:3000) displays the Agency Portal Directory
+  // Redirect bare localhost or 127.0.0.1 to platform.localhost:3000
+  const hostname = window.location.hostname;
+  if (hostname === "localhost" || hostname === "127.0.0.1") {
+    const port = window.location.port ? `:${window.location.port}` : "";
+    window.location.replace(
+      `${window.location.protocol}//platform.localhost${port}${window.location.pathname}${window.location.search}${window.location.hash}`
+    );
+    return null;
+  }
+
+  // Platform root (e.g. platform.localhost:3000) displays the Agency Portal Directory
   if (!subdomain) {
     return <PortalLandingPage />;
   }
