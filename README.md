@@ -116,12 +116,15 @@ pytest tests/ -v
 
 ## AWS Deployment Sketch
 
-- **ECS Fargate** for the FastAPI container (auto-scaling)
-- **RDS PostgreSQL** (Multi-AZ for HA)
-- **ALB** (Application Load Balancer) in front of ECS
-- **S3** for scan image storage
-- **SQS/SNS** for async notifications
-- **CloudWatch** for logging and monitoring
-- **Secrets Manager** for credentials
-- **Route 53** for DNS
+![AWS Architecture](docs/images/aws-architecture.png)
+
+- **ALB (Application Load Balancer)**: Distributes incoming traffic across API service nodes.
+- **ECS Cluster**:
+  - **Python API Service**: Auto-scaled FastAPI containers (N1–N3) with **Redis** cache.
+  - **Consumer Service**: Dedicated background workers (N1–N3) consuming events.
+- **SQS / Kafka**: Event streaming / message queue decoupling ingestion and background jobs.
+- **AWS RDS / Aurora**: High-availability PostgreSQL database for cases, scans, cameras, and tenants.
+- **AWS AppSync (WebSockets)**: Real-time event streaming and dashboard live updates.
+- **SNS / SQS**: Push notifications to field recovery agents and partner systems.
+- **AWS S3**: Scalable object storage for raw camera scan images.
 
