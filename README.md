@@ -2,24 +2,6 @@
 
 A vehicle recovery platform API that ingests license plate/VIN scans from truck-mounted cameras, matches them to recovery cases, and exposes tenant-scoped REST endpoints.
 
-## Architecture
-
-```
-┌─────────────┐     POST /api/v1/scans     ┌──────────────┐     ┌────────────┐
-│   Camera     │ ──────────────────────────▶│  FastAPI App │────▶│ PostgreSQL │
-│  (webhook)   │   (unauthenticated)        │              │     │            │
-└─────────────┘                             │  ┌────────┐  │     └────────────┘
-                                            │  │ Auth   │  │
-┌─────────────┐     GET/POST (JWT auth)     │  │ (JWT)  │  │
-│  Dashboard   │ ──────────────────────────▶│  └────────┘  │
-│  (React/Ang) │                            │              │
-└─────────────┘                             │  ┌────────┐  │
-                                            │  │ Mock   │  │
-                                            │  │Partner │  │
-                                            │  └────────┘  │
-                                            └──────────────┘
-```
-
 ## Tech Stack
 
 - **Backend**: Python 3.12, FastAPI, SQLAlchemy 2.0, Pydantic v2
