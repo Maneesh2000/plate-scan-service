@@ -103,17 +103,6 @@ pytest tests/ -v
 6. **Pagination** — the list endpoint returns all matching cases. Production would need cursor-based pagination.
 7. **Rate limiting** — not implemented. The scan ingestion endpoint would need rate limiting in production.
 
-## What I'd Do Next
-
-- **Close case endpoint** (`POST /api/v1/cases/{id}/close`)
-- **Pagination** on list endpoints (cursor-based)
-- **WebSocket** notifications for real-time case updates
-- **Role-based access control** — admin vs. staff permissions
-- **Alembic migrations** for schema versioning
-- **CI/CD pipeline** with automated tests
-- **API rate limiting** on the scan ingestion endpoint
-- **Audit logging** for case claim/status changes
-
 ## AWS Architecture & Stack
 
 ![AWS Architecture](docs/images/aws-architecture.png)
