@@ -69,65 +69,6 @@ pytest tests/ -v
 
 ![Database Schema](docs/images/database-schema.png)
 
-```mermaid
-erDiagram
-    tenants ||--o{ users : "has"
-    tenants ||--o{ cameras : "owns"
-    tenants ||--o{ cases : "originates"
-    tenants ||--o{ cases : "claims"
-    users ||--o{ cases : "assigned_to"
-    cameras ||--o{ scans : "captures"
-    cases ||--o{ scans : "has"
-
-    tenants {
-        uuid id PK
-        varchar(255) name
-        varchar(50) slug
-        varchar(500) logo_url
-        timestamptz created_at
-    }
-
-    users {
-        uuid id PK
-        uuid tenant_id FK
-        varchar(100) username
-        varchar(255) password_hash
-        varchar(20) role
-        timestamptz created_at
-    }
-
-    cameras {
-        varchar(50) id PK
-        uuid tenant_id FK
-        varchar(255) label
-        timestamptz created_at
-    }
-
-    cases {
-        uuid id PK
-        varchar(17) vin
-        varchar(20) status
-        uuid originating_tenant_id FK
-        uuid claimed_tenant_id FK
-        uuid assigned_agent_id FK
-        timestamptz created_at
-        timestamptz updated_at
-    }
-
-    scans {
-        uuid id PK
-        varchar(50) camera_id FK
-        varchar(20) plate
-        varchar(17) vin
-        float latitude
-        float longitude
-        timestamptz scanned_at
-        text image_url
-        uuid case_id FK
-        timestamptz created_at
-    }
-```
-
 ## Assumptions
 
 1. **Auth is simplified** — simple username/password login with JWT. No refresh tokens, password reset, or OAuth. A real system would use an identity provider (Auth0, Cognito, etc.).
