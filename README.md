@@ -2,6 +2,8 @@
 
 A vehicle recovery platform API that ingests license plate/VIN scans from truck-mounted cameras, matches them to recovery cases, and exposes tenant-scoped REST endpoints.
 
+> 📖 **Demo & Testing Guide**: Check out [DEMO_WALKTHROUGH.md](DEMO_WALKTHROUGH.md) for step-by-step test accounts, UI workflows, and `curl` API scenarios.
+
 ## Tech Stack
 
 - **Backend**: Python 3.12, FastAPI, SQLAlchemy 2.0, Pydantic v2
