@@ -114,7 +114,7 @@ pytest tests/ -v
 - **API rate limiting** on the scan ingestion endpoint
 - **Audit logging** for case claim/status changes
 
-## AWS Deployment Sketch
+## AWS Architecture & Stack
 
 ![AWS Architecture](docs/images/aws-architecture.png)
 
